@@ -1,0 +1,16 @@
+<html>
+<body>
+
+{% block content %}
+  <h1>Actor Form</h1>
+  <form method="POST" action="http://localhost:5000/tvshow">
+      <p>{{ form.actor.label }}{{ form.actor() }}</p>
+      {{ form.submit() }}
+  </form>
+{% endblock %}
+
+<img src='/static/itunes.jpg' height='200px'/>
+
+</body>
+</html>
+
