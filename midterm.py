@@ -48,7 +48,7 @@ def movie_list():
 	response = make_response('My favorite movie list would go here')
 	response.set_cookie('x', 'y')
 	return response
-t
+
 @app.errorhandler(404)
 def error_1(x):
     return render_template('404.html'), 404
