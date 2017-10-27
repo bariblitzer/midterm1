@@ -2,6 +2,6 @@
 {% for x in results%}
 <p><a href='/description/{{x['trackName']}}'>{{x['trackName']}}</a></p>
 {%endfor%}
-{% if x | length < 1%}
+{% if x | length < 0%}
 <p style='color:red;'> No results found for your search, go back to the <a href='/'> homepage. </a></p>
 {%endif%}

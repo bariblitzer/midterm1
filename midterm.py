@@ -35,12 +35,20 @@ def movie(movie_title):
 	print (data['results'][0]['longDescription'])
 	return render_template('movieinfo.html', title=movie_title, des=data['results'][0]['longDescription'])
 
+@app.route('/direct/<movie_title>', methods = ['GET', 'POST'])
+def direct(movie_title):
+	d ={'media': 'movie'}
+	resp = requests.get('https://itunes.apple.com/search?term='+movie_title+'&limit=', params=d)
+	data = json.loads(resp.text)
+	print (data['results'][0]['artistName'])
+	return render_template('genre.html', title=movie_title, gen=data['results'][0]['artistName'])
+
 @app.route('/list', methods = ['GET'])
 def movie_list():
 	response = make_response('My favorite movie list would go here')
 	response.set_cookie('x', 'y')
 	return response
-
+t
 @app.errorhandler(404)
 def error_1(x):
     return render_template('404.html'), 404
